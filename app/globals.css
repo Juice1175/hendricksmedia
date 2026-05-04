@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Colors */
+  --color-charcoal: #0D0B09;
+  --color-charcoal-2: #1A1612;
+  --color-cream: #EDE8DF;
+  --color-cream-muted: #A09890;
+  --color-orange: #E8632A;
+
+  /* Fonts — Next.js injects these CSS vars on <html> */
+  --font-display: var(--font-barlow), sans-serif;
+  --font-mono: var(--font-space-mono), monospace;
+  --font-body: var(--font-inter), sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+
+  /* Letter spacing */
+  --tracking-widest: 0.2em;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Film grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.35;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Component utilities */
+@layer components {
+  .eyebrow {
+    font-family: var(--font-space-mono), monospace;
+    color: var(--color-orange);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .headline {
+    font-family: var(--font-barlow), sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-cream);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--color-orange);
+    color: var(--color-orange);
+    font-family: var(--font-space-mono), monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.875rem 1.75rem;
+    transition: background-color 0.25s, color 0.25s;
+    text-decoration: none;
+  }
+
+  .btn-ghost:hover {
+    background-color: var(--color-orange);
+    color: var(--color-charcoal);
+  }
+
+  .service-card-link {
+    font-family: var(--font-space-mono), monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: transparent;
+    transition: color 0.3s;
+    margin-top: auto;
+  }
+
+  .group:hover .service-card-link {
+    color: var(--color-orange);
+  }
+
+  .section-pad {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-pad {
+      padding-left: 4rem;
+      padding-right: 4rem;
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-pad {
+      padding-left: 6rem;
+      padding-right: 6rem;
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+  }
 }

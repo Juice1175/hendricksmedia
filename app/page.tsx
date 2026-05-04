@@ -1,65 +1,145 @@
-import Image from "next/image";
+import Link from 'next/link'
+import AnimatedHeadline from '@/components/AnimatedHeadline'
+import AnimatedCounter from '@/components/AnimatedCounter'
+import ScrollReveal from '@/components/ScrollReveal'
+import HeroCanvas from '@/components/HeroCanvas'
+
+const services = [
+  {
+    label: '01',
+    title: 'Ad Strategy',
+    desc: 'Market research, audience targeting, and campaign architecture built for your trade, your region, your season.',
+  },
+  {
+    label: '02',
+    title: 'Creative Production',
+    desc: 'Ad creative that stops the scroll — copy, design, and video concepts built to convert local buyers.',
+  },
+  {
+    label: '03',
+    title: 'Performance Tracking',
+    desc: 'Clear reporting on cost per lead, return on ad spend, and every dollar working for you.',
+  },
+]
+
+const metrics = [
+  { value: '100%', label: 'Focused on local businesses' },
+  { value: 'Meta', label: 'Certified advertising partner' },
+  { value: '$0', label: 'Wasted spend on guesswork' },
+]
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      {/* HERO */}
+      <section className="relative min-h-screen flex flex-col justify-end overflow-hidden">
+        {/* Canvas background */}
+        <HeroCanvas />
+
+        {/* Gradient fade at bottom so text sits on solid */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-2/3 pointer-events-none"
+          style={{ background: 'linear-gradient(to top, #0D0B09 60%, transparent)' }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+
+        {/* Content */}
+        <div className="relative z-10 section-pad max-w-[95vw]">
+          <ScrollReveal delay={0}>
+            <p className="eyebrow mb-8">/// Digital Advertising</p>
+          </ScrollReveal>
+
+          <h1 className="headline mb-10" style={{ fontSize: 'clamp(4rem,11vw,10.5rem)', lineHeight: 0.9 }}>
+            <AnimatedHeadline text="We Make Local Businesses Impossible to Ignore." delay={0.1} />
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8">
+            <ScrollReveal delay={0.55}>
+              <p style={{ fontFamily: 'var(--font-inter), sans-serif', color: 'rgba(237,232,223,0.55)', maxWidth: '28rem', lineHeight: 1.7 }}>
+                Facebook &amp; Instagram ads built for roofing companies and local service businesses in Oklahoma.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.7}>
+              <Link href="/contact" className="btn-ghost whitespace-nowrap">
+                Start a Project &rarr;
+              </Link>
+            </ScrollReveal>
+          </div>
+        </div>
+
+        {/* Scroll hint */}
+        <div className="absolute bottom-8 right-12 z-10">
+          <ScrollReveal delay={1.2}>
+            <div className="flex flex-col items-center gap-2">
+              <span className="eyebrow" style={{ fontSize: '0.6rem', letterSpacing: '0.25em' }}>Scroll</span>
+              <div className="w-px h-12 bg-[#E8632A]/40" />
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* STATEMENT STRIP */}
+      <section className="border-t border-b border-[#EDE8DF]/10 py-10 px-8 md:px-16 lg:px-24 overflow-hidden">
+        <ScrollReveal>
+          <p className="headline whitespace-nowrap" style={{ fontSize: 'clamp(1.5rem,4vw,3rem)', color: 'rgba(237,232,223,0.12)' }}>
+            AD STRATEGY &nbsp;&nbsp;&mdash;&nbsp;&nbsp; CREATIVE PRODUCTION &nbsp;&nbsp;&mdash;&nbsp;&nbsp; PERFORMANCE TRACKING &nbsp;&nbsp;&mdash;&nbsp;&nbsp; LANDING PAGES &nbsp;&nbsp;&mdash;&nbsp;&nbsp; AD STRATEGY &nbsp;&nbsp;&mdash;&nbsp;&nbsp; CREATIVE PRODUCTION
           </p>
+        </ScrollReveal>
+      </section>
+
+      {/* SERVICES */}
+      <section className="section-pad">
+        <ScrollReveal>
+          <p className="eyebrow mb-16">/// What We Do</p>
+        </ScrollReveal>
+        <div className="grid md:grid-cols-3 gap-px bg-[#EDE8DF]/10">
+          {services.map((s, i) => (
+            <ScrollReveal key={s.label} delay={i * 0.12}>
+              <div className="bg-[#0D0B09] p-10 h-full flex flex-col gap-6 group hover:bg-[#1A1612] transition-colors duration-300">
+                <span className="eyebrow">{s.label}</span>
+                <h3 className="headline text-4xl">{s.title}</h3>
+                <p style={{ fontFamily: 'var(--font-inter), sans-serif', color: 'rgba(237,232,223,0.45)', fontSize: '0.9rem', lineHeight: 1.75 }}>{s.desc}</p>
+                <span className="service-card-link">Learn more &rarr;</span>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* METRICS STRIP */}
+      <section className="border-t border-[#EDE8DF]/10">
+        <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#EDE8DF]/10">
+          {metrics.map((m) => (
+            <div key={m.label} className="px-12 py-16 flex flex-col gap-4">
+              <AnimatedCounter
+                value={m.value}
+                className="headline text-[#E8632A]"
+                style={{ fontSize: 'clamp(3rem,6vw,5rem)' }}
+              />
+              <span className="eyebrow">{m.label}</span>
+            </div>
+          ))}
         </div>
-      </main>
-    </div>
-  );
+      </section>
+
+      {/* CTA */}
+      <section className="relative section-pad border-t border-[#EDE8DF]/10 overflow-hidden">
+        {/* Subtle glow */}
+        <div
+          className="absolute top-0 right-0 w-96 h-96 pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(232,99,42,0.08) 0%, transparent 70%)' }}
+        />
+        <ScrollReveal>
+          <div className="max-w-4xl relative z-10">
+            <p className="eyebrow mb-6">/// Ready to Grow</p>
+            <h2 className="headline mb-10" style={{ fontSize: 'clamp(2.5rem,7vw,7rem)', lineHeight: 0.95 }}>
+              Let&rsquo;s Build Something That Works.
+            </h2>
+            <Link href="/contact" className="btn-ghost">
+              Get in Touch &rarr;
+            </Link>
+          </div>
+        </ScrollReveal>
+      </section>
+    </>
+  )
 }
