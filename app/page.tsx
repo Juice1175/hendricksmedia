@@ -8,24 +8,24 @@ const services = [
   {
     label: '01',
     title: 'Ad Strategy',
-    desc: 'Market research, audience targeting, and campaign architecture built for your trade, your region, your season.',
+    desc: 'Hyper-local targeting built around your service area, your season, and the neighborhoods most likely to need a new roof.',
   },
   {
     label: '02',
     title: 'Creative Production',
-    desc: 'Ad creative that stops the scroll — copy, design, and video concepts built to convert local buyers.',
+    desc: 'Scroll-stopping ads built for homeowners — before/after visuals, urgency copy, and offers that drive calls, not clicks.',
   },
   {
     label: '03',
     title: 'Performance Tracking',
-    desc: 'Clear reporting on cost per lead, return on ad spend, and every dollar working for you.',
+    desc: 'Weekly reports on cost per lead, booked jobs, and ROAS — plain English, no agency fluff.',
   },
 ]
 
 const metrics = [
-  { value: '100%', label: 'Focused on local businesses' },
+  { value: '100%', label: 'Oklahoma-based, locally focused' },
   { value: 'Meta', label: 'Certified advertising partner' },
-  { value: '$0', label: 'Wasted spend on guesswork' },
+  { value: '$0', label: 'Lock-in. Month-to-month only.' },
 ]
 
 export default function Home() {
@@ -55,7 +55,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8">
             <ScrollReveal delay={0.55}>
               <p style={{ fontFamily: 'var(--font-inter), sans-serif', color: 'rgba(237,232,223,0.55)', maxWidth: '28rem', lineHeight: 1.7 }}>
-                Facebook &amp; Instagram ads built for roofing companies and local service businesses in Oklahoma.
+                We run paid ads for roofing companies in Oklahoma — storm season is now. Let&rsquo;s get you booked out.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.7}>
