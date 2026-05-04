@@ -26,10 +26,14 @@ export default function HeroCanvas() {
       size: number
       opacity: number
       color: string
+      w: number
+      h: number
 
-      constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
+      constructor(w: number, h: number) {
+        this.w = w
+        this.h = h
+        this.x = Math.random() * w
+        this.y = Math.random() * h
         this.vx = (Math.random() - 0.5) * 0.3
         this.vy = (Math.random() - 0.5) * 0.3
         this.size = Math.random() * 1.5 + 0.5
@@ -40,10 +44,10 @@ export default function HeroCanvas() {
       update() {
         this.x += this.vx
         this.y += this.vy
-        if (this.x < 0) this.x = canvas.width
-        if (this.x > canvas.width) this.x = 0
-        if (this.y < 0) this.y = canvas.height
-        if (this.y > canvas.height) this.y = 0
+        if (this.x < 0) this.x = this.w
+        if (this.x > this.w) this.x = 0
+        if (this.y < 0) this.y = this.h
+        if (this.y > this.h) this.y = 0
       }
 
       draw() {
@@ -57,7 +61,7 @@ export default function HeroCanvas() {
 
     const init = () => {
       resize()
-      particles = Array.from({ length: 120 }, () => new Particle())
+      particles = Array.from({ length: 120 }, () => new Particle(canvas.width, canvas.height))
     }
 
     const drawConnections = () => {

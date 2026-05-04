@@ -21,7 +21,7 @@ export default function AnimatedHeadline({ text, className = '', delay = 0 }: An
             transition={{
               duration: 0.7,
               delay: delay + i * 0.08,
-              ease: [0.16, 1, 0.3, 1],
+              ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
             }}
           >
             {word}
