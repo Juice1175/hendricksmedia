@@ -24,7 +24,7 @@ const services = [
 
 const metrics = [
   { value: '100%', label: 'Oklahoma-based, locally focused' },
-  { value: 'Meta', label: 'Certified advertising partner' },
+  { value: 'Meta', label: 'Ads Specialist' },
   { value: '$0', label: 'Lock-in. Month-to-month only.' },
 ]
 
