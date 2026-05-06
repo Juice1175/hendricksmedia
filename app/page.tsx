@@ -45,9 +45,9 @@ const foundingSlots = [
     num: '02',
     status: 'available' as const,
     title: 'Second Founding Partner',
-    offer: 'Reduced rate. Real results.',
-    detail: 'A significantly discounted management fee for one roofing company in Oklahoma. Same full-service treatment — strategy, creative, tracking — at a fraction of the normal price.',
-    tags: ['Discounted rate', 'Full service', 'Priority onboarding'],
+    offer: '$150/month. Real results.',
+    detail: 'A reduced management fee for one roofing company in Oklahoma. Same full-service treatment — strategy, creative, tracking — at a fraction of the normal $300/month rate.',
+    tags: ['$150/month management fee', 'Full service', 'Priority onboarding'],
   },
 ]
 
